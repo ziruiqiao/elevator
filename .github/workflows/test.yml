@@ -1,0 +1,39 @@
+name: Run Tests
+on:
+  push:
+    branches: 
+     - main
+    paths:
+      - '**.java'
+      - '.github/workflows/*'
+
+      
+  pull_request:
+    branches: 
+     - main
+    paths:
+      - '**.java'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'microsoft'
+      - name: Download Junit
+        run: curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar -o junit.jar
+      - name: Build
+        run: find . -name "*.java" | xargs javac -d code/elevator/bin/ -cp junit.jar
+        shell: bash
+      - name: Run Tests
+        id: junit
+        uses: mathiasvr/command-output@v1
+        with:
+          run: |
+            java -jar junit.jar --class-path code/elevator/bin --scan-class-path 2>&1
+         

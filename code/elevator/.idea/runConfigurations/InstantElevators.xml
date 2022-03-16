@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="InstantElevators" type="Application" factoryName="Application">
+    <envs>
+      <env name="NO_SLEEP" value="true" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="elevator.SchedulerTestApplication" />
+    <module name="elevator" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

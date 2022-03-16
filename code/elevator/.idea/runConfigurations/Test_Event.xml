@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Test Event" type="JUnit" factoryName="JUnit">
+    <module name="elevator" />
+    <option name="PACKAGE_NAME" value="tests" />
+    <option name="MAIN_CLASS_NAME" value="tests.PassengerRequestTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

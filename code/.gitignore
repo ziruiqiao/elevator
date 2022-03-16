@@ -1,0 +1,7 @@
+.metadata/
+
+#Ignore backup files
+*.bak
+
+#Java Specific
+*.class

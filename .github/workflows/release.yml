@@ -1,0 +1,30 @@
+name: Releaser
+on:
+  push:
+    tags:
+    - 'P*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (For Push)
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Remove Extra Project files
+        run: find . -name ".gitignore" -o -name ".idea" -o -name ".github" -o -name ".git" | xargs rm -rf
+      - name: Compress
+        run: zip -r /tmp/Release.zip .
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "/tmp/Release.zip"
+          body: Download and open Release.zip with eclipse
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      
+
+
+
+
+        
